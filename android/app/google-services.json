@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "181367002981",
+    "project_id": "dummy-ecom-app",
+    "storage_bucket": "dummy-ecom-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181367002981:android:310f53650ec3c10df8f38c",
+        "android_client_info": {
+          "package_name": "com.example.ecom_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoi06vJP0B1Va15Kwg-lWtHFzrwhThQqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,8 +6,8 @@ sealed class LoginState {}
 final class UnAuth extends LoginState {}
 
 final class Auth extends LoginState {
-  final String email;
+  final String? email;
 
   final String token;
-  Auth({required this.email, required this.token});
+  Auth({this.email, required this.token});
 }

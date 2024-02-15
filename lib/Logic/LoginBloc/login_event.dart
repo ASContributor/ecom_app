@@ -11,6 +11,10 @@ class LoginWithEmail extends LoginEvent {
   LoginWithEmail(this.context, {required this.Email, required this.Pass});
 }
 
+class CheckStatusEvent extends LoginEvent {
+  CheckStatusEvent();
+}
+
 class LoginWithGoogle extends LoginEvent {
   LoginWithGoogle();
 }

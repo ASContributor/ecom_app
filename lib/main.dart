@@ -26,11 +26,12 @@ class MyApp extends StatelessWidget {
       child: BlocProvider(
         create: (context) => LoginBloc(),
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.system,
           title: 'Flutter Demo',
           theme: CTheme.LightRheme,
           darkTheme: CTheme.DarkTheam,
-          initialRoute: AppRoute.intro_screen,
+          initialRoute: AppRoute.splash_screen,
           onGenerateRoute: AppRoute.OnGenerateRoute,
         ),
       ),

@@ -18,6 +18,10 @@ class AppRoute {
 
   static Route<dynamic> OnGenerateRoute(RouteSettings setting) {
     switch (setting.name) {
+      case splash_screen:
+        return MaterialPageRoute(
+          builder: (context) => SplashScreen(),
+        );
       case intro_screen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
@@ -25,17 +29,18 @@ class AppRoute {
             child: const InfoScreen(),
           ),
         );
-      case splash_screen:
-        return MaterialPageRoute(
-          builder: (context) => const SplashScreen(),
-        );
+
       case login_screen:
-        return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => LoginBloc(),
-            child: LoginScreen(),
-          ),
-        );
+        if (setting.arguments == false) {
+          return MaterialPageRoute(
+            builder: (context) => const LandingPage(),
+          );
+        } else {
+          print('dcxj ${setting.arguments}');
+          return MaterialPageRoute(
+            builder: (context) => LoginScreen(),
+          );
+        }
       case home:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
@@ -47,12 +52,12 @@ class AppRoute {
               //   create: (context) => LoginBloc(),
               // ),
             ],
-            child: AuthStateListener(child: const LandingPage()),
+            child: const LandingPage(),
           ),
         );
       default:
         return MaterialPageRoute(
-          builder: (context) => const LandingPage(),
+          builder: (context) => LoginScreen(),
         );
     }
   }

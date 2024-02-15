@@ -7,14 +7,31 @@ import '../../custom_widgets/appBar/appBar.dart';
 import '../../custom_widgets/backgroundColor/backgroundGradient.dart';
 import '../../custom_widgets/login/login_widget.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController Emailcontroller = TextEditingController();
+
   TextEditingController Passcontroller = TextEditingController();
+
   final bool emailVelidator = false;
+
   final bool passwordVelidator = false;
+
   final _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<LoginBloc>(context).add(CheckStatusEvent());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

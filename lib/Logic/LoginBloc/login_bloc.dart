@@ -29,5 +29,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       await _authFirebase.signOut();
       emit(UnAuth());
     });
+    on<CheckStatusEvent>((event, emit) async {
+      if (_authFirebase.currentuser == null) {
+        emit(UnAuth());
+      } else {
+        emit(Auth(
+            email: _authFirebase.currentuser!.email,
+            token: _authFirebase.currentuser!.uid));
+      }
+    });
   }
 }

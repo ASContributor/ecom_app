@@ -1,5 +1,7 @@
+import 'package:ecom_app/Logic/LoginBloc/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -27,7 +29,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(const Duration(seconds: 1), () {
       if (seen) {
-        Navigator.pushReplacementNamed(context, 'login/');
+        print('objdfdfdect');
+        print(BlocProvider.of<LoginBloc>(context).state);
+        if (BlocProvider.of<LoginBloc>(context).state == Auth) {
+          Navigator.pushReplacementNamed(context, '/');
+        } else {
+          Navigator.pushReplacementNamed(context, 'login/',arguments: (BlocProvider.of<LoginBloc>(context).state is UnAuth));
+        }
       } else {
         Navigator.pushReplacementNamed(context, 'intro/');
       }
